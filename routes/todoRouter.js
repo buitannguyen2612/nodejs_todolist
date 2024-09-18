@@ -12,6 +12,7 @@ router.get("/getall", async function (req, res) {
   try {
     // this is get from middleware
     const infoUser = req.user;
+    
     const allTodo = await todoList.find({ user: infoUser._id });
     res.status(200).json(allTodo);
   } catch (error) {

@@ -5,9 +5,9 @@ dotEnv.config();
 
 const generateTokens = async (user) => {
   try {
-    const payload = { _id: user._id, name: user.userName };
+    const payload = { _id: user._id, name: user.userName, role:user.role, mail:user.email };
     const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn: "10s",
+      expiresIn: "6d",
     });
     const refreshToken = jwt.sign(
       payload,

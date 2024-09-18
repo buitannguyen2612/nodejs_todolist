@@ -55,7 +55,12 @@ router.post("/register", async (rq, res) => {
     const data = {
       userName: rq.body.userName,
       password: rq.body.password,
+      email:rq.body.email,
+      role:rq.body.role
     };
+    console.log('Catch request', data);
+    
+    
     // Check if name user is already have
     const exitUserName = await user.findOne({ userName: data.userName });
     if (exitUserName) {

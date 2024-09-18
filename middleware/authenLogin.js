@@ -6,7 +6,6 @@ const authLogin = async (rq, res, next) => {
   const findUser = await user.findOne({
     userName: rq.body.userName,
   });
-  console.log(findUser);
   if (findUser === null) {
     console.log("account not found", findUser);
     res.send("account not found!");
