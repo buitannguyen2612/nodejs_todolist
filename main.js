@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const dotEnv = require("dotenv");
 const todoRoutes = require("./routes/todoRouter.js");
 const autheRouter = require("./routes/authen.js");
+const adminRouter = require("./routes/adminManage.js");
 
 // providing to routes to ENV file
 dotEnv.config();
@@ -28,6 +29,7 @@ app.use(cors());
 app.use("/todo", todoRoutes);
 // route-2: Chứa các endpoint cho các tương tác login và register
 app.use("/user", autheRouter);
+app.use("/admin", adminRouter);
 
 const port = process.env.PORT || 8080;
 const hostname = "127.0.0.1";
