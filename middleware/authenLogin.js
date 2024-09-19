@@ -7,8 +7,7 @@ const authLogin = async (rq, res, next) => {
     userName: rq.body.userName,
   });
   if (findUser === null) {
-    console.log("account not found", findUser);
-    res.send("account not found!");
+    res.status(404).send('Account not found!!')
   } else {
     rq.user = findUser;
     next();

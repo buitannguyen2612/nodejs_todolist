@@ -20,7 +20,7 @@ router.post("/login", authLogin, async (rq, res) => {
     let tokenLifespan;
     const isSamePass = await bcrypt.compare(rq.body.password, rq.user.password);
     if (!isSamePass) {
-      res.send("Password not correct");
+      res.status(401).send("Password incorrect");
     } else {
       const { accessToken, refreshToken } = await generateTokens(rq.user);
       jwt.verify(
